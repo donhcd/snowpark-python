@@ -2007,6 +2007,7 @@ class Session:
         self,
         data: Union[List, Tuple, "pandas.DataFrame"],
         schema: Optional[Union[StructType, Iterable[str]]] = None,
+        **kwargs,
     ) -> DataFrame:
         """Creates a new DataFrame containing the specified values from the local data.
 
@@ -2098,6 +2099,7 @@ class Session:
                     quote_identifiers=True,
                     auto_create_table=True,
                     table_type="temporary",
+                    **kwargs,
                 )
                 set_api_call_source(t, "Session.create_dataframe[pandas]")
                 return t
